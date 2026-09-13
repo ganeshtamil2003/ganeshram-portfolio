@@ -185,22 +185,30 @@
 
   .pipelineConnector {
     position: absolute;
-    top: auto;
-    left: 24px;
+    top: 100%;
+    left: 23px;
     right: auto;
-    bottom: -2px;
+    bottom: auto;
     width: 2px;
-    height: var(--space-3);
+    height: calc(var(--space-3) * 2);
     background: var(--border);
   }
 
   .pipelineConnector::after {
-    display: none;
+    display: block;
+    top: 0;
+    left: -3px;
+    animation: expertiseTravelDotVertical 2s linear infinite;
   }
 
   .pipelineLabel {
     text-align: left;
   }
+}
+
+@keyframes expertiseTravelDotVertical {
+  0% { top: 0; }
+  100% { top: 100%; }
 }
 
 @media (max-width: 640px) {
