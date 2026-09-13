@@ -1,0 +1,205 @@
+.education {
+  padding: var(--space-24) 0;
+}
+
+.educationInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.header p {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ---- Horizontal Timeline ---- */
+.timeline {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  padding: var(--space-8) 0;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 56px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 3px;
+  z-index: 0;
+}
+
+.timelineLine::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  animation: educationTravelDot 4s linear infinite;
+}
+
+@keyframes educationTravelDot {
+  0% { left: 0; }
+  100% { left: calc(100% - 10px); }
+}
+
+/* ---- Milestone ---- */
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Node ---- */
+.node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), var(--shadow-md);
+  margin-bottom: var(--space-6);
+  transition: all var(--duration-medium) var(--ease-default);
+}
+
+.milestone:hover .node {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), var(--shadow-lg);
+  border-color: var(--accent-glow);
+}
+
+.nodeIcon {
+  font-size: 24px;
+}
+
+/* ---- Card ---- */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 280px;
+  width: 100%;
+  transition: all var(--duration-medium) var(--ease-default);
+}
+
+.milestone:hover .card {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.year {
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--accent);
+  padding: 3px 10px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: var(--radius-full);
+}
+
+.degree {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  margin-top: var(--space-2);
+}
+
+.school {
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.location {
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+}
+
+.scoreBadge {
+  margin-top: var(--space-3);
+  padding: 4px 14px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-full);
+}
+
+.scoreBadge span {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-pass);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .timelineLine {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 3px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .timelineLine::after {
+    animation: educationTravelDotVertical 4s linear infinite;
+    left: -3px;
+    top: 0;
+  }
+
+  .milestone {
+    flex-direction: row;
+    gap: var(--space-5);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .node {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .card {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+@keyframes educationTravelDotVertical {
+  0% { top: 0; }
+  100% { top: calc(100% - 10px); }
+}

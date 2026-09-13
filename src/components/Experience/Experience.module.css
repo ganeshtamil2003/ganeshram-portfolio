@@ -1,0 +1,185 @@
+.experience {
+  padding: var(--space-24) 0;
+}
+
+.experienceInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.header .sectionLabel {
+  justify-content: center;
+}
+
+.header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.header p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ---- Timeline ---- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: var(--radius-full);
+}
+
+/* ---- Timeline Entry ---- */
+.timelineEntry {
+  position: relative;
+  margin-bottom: var(--space-10);
+}
+
+.timelineEntry:last-child {
+  margin-bottom: 0;
+}
+
+.timelineNode {
+  position: absolute;
+  left: -33px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg-deep);
+  z-index: 1;
+}
+
+.timelineNodeActive {
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+/* ---- Card ---- */
+.expCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: border-color var(--duration-medium) var(--ease-default);
+}
+
+.expCard:hover {
+  border-color: var(--accent);
+}
+
+.expCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.company {
+  font-size: 20px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.role {
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--accent);
+  margin-top: var(--space-1);
+}
+
+.duration {
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.projectBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.projectBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px 10px;
+  background: rgba(34, 211, 238, 0.08);
+  color: var(--accent-secondary);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+}
+
+.responsibilities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.responsibilities li {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  padding-left: var(--space-5);
+  position: relative;
+  line-height: 1.6;
+}
+
+.responsibilities li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: var(--fw-bold);
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timelineNode {
+    left: -27px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .expCardHeader {
+    flex-direction: column;
+  }
+}

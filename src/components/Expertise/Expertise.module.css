@@ -1,0 +1,210 @@
+.expertise {
+  padding: var(--space-24) 0;
+}
+
+.expertiseInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.header p {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---- Pipeline ---- */
+.pipeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: var(--space-16);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  position: relative;
+}
+
+.pipelineStep {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  position: relative;
+}
+
+.pipelineIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  position: relative;
+  z-index: 1;
+  transition: all var(--duration-medium) var(--ease-default);
+}
+
+.pipelineStep:hover .pipelineIcon {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.pipelineLabel {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.pipelineConnector {
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 28px);
+  right: calc(-50% + 28px);
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.pipelineConnector::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: expertiseTravelDot 3s linear infinite;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes expertiseTravelDot {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+.pipelineStep:last-child .pipelineConnector {
+  display: none;
+}
+
+/* ---- Capability Grid ---- */
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.capabilityCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-medium) var(--ease-default);
+}
+
+.capabilityCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.capabilityCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.capabilityIcon {
+  font-size: 28px;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.capabilityTitle {
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.capabilityDesc {
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Color variants via top border */
+.borderBlue::before { background: var(--accent); }
+.borderCyan::before { background: var(--accent-secondary); }
+.borderViolet::before { background: var(--accent-tertiary); }
+.borderGreen::before { background: var(--color-pass); }
+.borderAmber::before { background: var(--color-warning); }
+.borderRose::before { background: var(--color-fail); }
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .capabilityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pipeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .pipelineStep {
+    flex-direction: row;
+    min-width: auto;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+  }
+
+  .pipelineConnector {
+    position: absolute;
+    top: auto;
+    left: 24px;
+    right: auto;
+    bottom: -2px;
+    width: 2px;
+    height: var(--space-3);
+    background: var(--border);
+  }
+
+  .pipelineConnector::after {
+    display: none;
+  }
+
+  .pipelineLabel {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,334 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-hero);
+  padding-top: var(--nav-height);
+}
+
+/* ---- Grid Background ---- */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(51, 65, 85, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 65, 85, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ---- Radial Glow ---- */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+.heroInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Content Column ---- */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.microLabel {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background: var(--accent-secondary);
+  animation: heroBlink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes heroBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.heroHeading {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+.heroDescription {
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: var(--lh-body);
+}
+
+.heroCtas {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 24px;
+  background: var(--gradient-accent);
+  color: var(--text-on-accent);
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-default);
+  box-shadow: var(--shadow-md);
+}
+
+.ctaPrimary:hover {
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-1px);
+  color: var(--text-on-accent);
+}
+
+.ctaPrimary:active {
+  transform: scale(0.97);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 24px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.ctaSecondary:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-glow);
+}
+
+.ctaSecondary:active {
+  transform: scale(0.97);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-pass);
+  animation: heroPulseGlow 2s infinite;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+@keyframes heroPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+  }
+}
+
+/* ---- Terminal Visual ---- */
+.terminalWrapper {
+  display: flex;
+  justify-content: center;
+  animation: heroGentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroGentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.terminal {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--shadow-lg), var(--shadow-glow-lg);
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 16px;
+  background: rgba(30, 41, 59, 0.5);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminalDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed { background: #EF4444; }
+.dotYellow { background: #F59E0B; }
+.dotGreen { background: #10B981; }
+
+.terminalTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: var(--space-2);
+}
+
+.terminalBody {
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.terminalLine {
+  opacity: 0;
+  animation: terminalTypeReveal 0.3s ease forwards;
+}
+
+@keyframes terminalTypeReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.terminalCommand {
+  color: var(--accent-secondary);
+}
+
+.terminalPass {
+  color: var(--color-pass);
+}
+
+.terminalText {
+  color: var(--text-secondary);
+}
+
+.terminalDim {
+  color: var(--text-muted);
+}
+
+.terminalHighlight {
+  color: var(--accent);
+}
+
+.terminalDivider {
+  display: block;
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.terminalStatusRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.progressBar {
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    text-align: center;
+  }
+
+  .heroContent {
+    align-items: center;
+  }
+
+  .heroDescription {
+    max-width: 600px;
+  }
+
+  .heroCtas {
+    justify-content: center;
+  }
+
+  .terminalWrapper {
+    justify-content: center;
+  }
+
+  .terminal {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    justify-content: center;
+  }
+
+  .statusBadge {
+    align-self: center;
+  }
+}
