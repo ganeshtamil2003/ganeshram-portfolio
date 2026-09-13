@@ -4,7 +4,7 @@ A modern, dark-themed personal portfolio website built with **Next.js 16**, **Ty
 
 ## 🌐 Live
 
-> _Coming soon — will be deployed on Vercel_
+> (https://ganeshram-portfolio.vercel.app/)
 
 ---
 
