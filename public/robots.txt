@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ganeshram.vercel.app/sitemap.xml
+Sitemap: https://ganeshram-portfolio.vercel.app/sitemap.xml
