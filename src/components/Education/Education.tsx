@@ -22,7 +22,7 @@ const EDUCATION = [
     degree: "B.Tech in Information Technology",
     school: "National Engineering College",
     location: "Kovilpatti",
-    score: "CGPA: 7.8",
+    score: "CGPA: 7.7",
     year: "2021 - 2025",
     icon: "🎓",
   },
